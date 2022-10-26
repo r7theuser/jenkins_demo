@@ -1,0 +1,31 @@
+#!/usr/bin/env groovy
+@Library("com.optum.jenkins.pipeline.library@master") _
+
+pipeline {
+    agent none
+    environment {
+        AZURE_CREDENTIALS_ID = 'dwaas_service_principal'
+        DEPLOY_BRANCH = 'master'
+        AZURECLI_VERSION = '2.0.74'
+        GOLANG_VERSION = '1.12'
+        KUBECTL_VERSION = '1.15.3'
+        MAVEN_VERSION = '3.3.9'
+        TERRAFORM_VERSION = '0.12'
+        HELM_VERSION = '2.14.1'
+        TWISTLOCK_VERSION = '19_11_512'
+        SNOWSQL_VERSION = '1.2'
+        PYTHON_VERSION = '3.7'
+    }
+
+    options { timestamps() }
+
+    stages{
+        
+    stage("validate"){
+        agent any
+        steps{
+            echo "Hello World"
+        }
+    }
+    }
+}
